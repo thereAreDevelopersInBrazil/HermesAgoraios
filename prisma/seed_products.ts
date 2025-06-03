@@ -1,7 +1,7 @@
-import { PrismaClient } from "../generated/prisma";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { generateProducts } from "./generate_products";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

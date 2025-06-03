@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto'
-import { PrismaService } from 'src/core/database/prisma.service';
+import { FindAllProductsDto } from './dto/find-all-products.dto';
+import { AProductsRepository } from 'src/core/repositories/abstracts/aproducts.repository';
 import { Product } from './entities/product.entity';
+import { IdParamDto } from 'src/core/dto/id-param.dto';
 
 @Injectable()
 export class ProductsService {
-  constructor(protected readonly prismaService: PrismaService) { }
+  constructor(protected readonly repo: AProductsRepository) { }
 
 
-  create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+  async findAll(findAllProductsDto: FindAllProductsDto): Promise<Product[]> {
+
+    const where = {};
+    if (findAllProductsDto.code) {
+      where['code'] = {
+        contains: findAllProductsDto.code
+      }
+    }
+    if (findAllProductsDto.name) {
+      where['name'] = {
+        contains: findAllProductsDto.name
+      }
+    }
+    const result = await this.repo.findAll(where);
+    return result;
   }
 
-  findAll() {
-    return `This action returns all products`;
+  async findOne(id: IdParamDto): Promise<Product> {
+    return await this.repo.findOne(id.id);
   }
-
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
-  }
-
-
-
 
 }

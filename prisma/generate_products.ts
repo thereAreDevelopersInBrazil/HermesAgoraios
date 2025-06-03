@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Products } from "generated/prisma";
+import { Products } from "@prisma/client";
 import { writeFileSync } from "node:fs";
 
 export function generateProducts(productsQuantity = 2000) {

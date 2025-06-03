@@ -1,34 +1,34 @@
-import { Products } from "generated/prisma";
+import { Products } from "@prisma/client";
 
 export class Product {
     /**
-   * Id do produto
-   * @example 7
-   */
+     * Id do produto
+     * @example 7
+    */
     public readonly id: number;
 
     /**
      * Nome do produto
      * @example "Café"
-     */
+    */
     public readonly name: string;
 
     /**
      * Código do produto
      * @example "COF_02368"
-     */
+    */
     public readonly code: string;
 
     /**
      * Preço unitário do produto
      * @example 37.30
-     */
+    */
     public readonly price: number;
 
     /**
      * URL da imagem do produto
      * @example "https://my.image.com/product.png"
-     */
+    */
     public readonly photo: string;
 
     constructor(

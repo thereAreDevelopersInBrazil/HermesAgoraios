@@ -1,4 +1,4 @@
-import { Orders } from "generated/prisma";
+import { Orders } from "@prisma/client";
 
 export class Order {
     /**
