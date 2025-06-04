@@ -6,6 +6,7 @@ import { CreateOrderRequestDto } from './dto/create-order-request.dto';
 import { IdParamDto } from 'src/core/dto/id-param.dto';
 import { Order } from './entities/order.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { OrdersCsv } from './entities/orders-csv.entity';
 
 @Controller('orders')
 export class OrdersController {
@@ -28,7 +29,10 @@ export class OrdersController {
    * Cria pedidos em massa
    *
    * @remarks Cria pedidos em massa a partir do upload de um arquivo csv
-   * Espera que seja enviado um campo `orders` em formato csv (comma separated values)
+   * Espera que seja enviado um campo `orders` em formato csv (comma separated values)<br/>
+   * A primeira linha do arquivo deve conter um cabeçalho no formato: `order_id,customer_id,item_code,item_quantity,item_unit_price`<br/>
+   * As demais linhas devem ser preenchidas respeitando o formato proposto pelo cabeçalho<br/>
+   * Um arquivo template contendo diversos scenarios pode ser encontrado aqui: <a href="https://drive.google.com/file/d/1keKVQNYqbPAqOACflrdMgnIrQKk0Jpvt/view?usp=sharing" target="_blank">orders-sample.csv</a><br/>
    *
    * @throws {400} Bad Request - Caso exista alguma inconsistência que impossibilite completamente a leitura total do arquivo
    * @throws {500} Caso ocorra algum erro interno no serviço
@@ -36,6 +40,9 @@ export class OrdersController {
   @Post('/csv')
   @UseInterceptors(FileInterceptor('orders'))
   createByCsv(@UploadedFile() orders: Express.Multer.File) {
+    if (!orders || !orders?.originalname || !orders?.mimetype) {
+      throw new BadRequestException(`O campo orders é obrigatório e deve ser do tipo file, lembre-se de ajustar seu request para o tipo form-data!`);
+    }
     const fileNameExtensions = orders.originalname.split(".");
     const lastExtension = fileNameExtensions.pop();
     if (lastExtension != 'csv') {

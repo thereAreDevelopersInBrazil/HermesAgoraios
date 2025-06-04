@@ -47,8 +47,10 @@ export class ProductsService {
       quantity: null,
       lastBuyDate: null,
     }));
-    console.log('Products with details:', JSON.stringify(productsWithDetails, null, 2));
-
+    /**
+     * Pode parecer meio redundante, mais esse primeiro bloco irá enviar uma resposta imediata
+     * para o client contendo os dados dos produtos que já estavam de prontos
+     */
     resultStream.next(productsWithDetails);
 
     const allProductsPromises = products.map(async (product) => {
