@@ -113,19 +113,28 @@ http://localhost:3000/
 http://localhost:3000/docs
 ```
 
-7 - Também criei um gerador de produtos que gera um arquivo products.json na pasta ```prisma\products.json```, para rodar o gerador de produtos execute:
+## Facilidades para Testes:
+
+Também criei um gerador de produtos que gera um arquivo products.json na pasta ```prisma\products.json```, para rodar o gerador de produtos execute:
 
 ```
 npm run generate:products ARG
 ```
 Onde ARG é a quantidade de produtos desejada ex.: 10000
 
-Para acessar a documentação da API (Swagger) acesse:
-```
-http://localhost:3000/docs
-```
-
-Para facilitar, criei uma collection no Postman e compartilhei com email de vocês, mais em todo caso segue o link para a collection do postman:
+Outra facilidade é que criei uma collection no Postman e compartilhei com email de vocês, mais em todo caso segue o link para a collection do postman:
 ```
 https://app.getpostman.com/join-team?invite_code=19c03856ed703f28e99738d08bc7d478e5be353419801cf1abd099c643d24fec
 ```
+Caso prefira utilizar o recurso de importação de collections, também exportei a collection e coloquei em:
+```
+assets\Hermes Agoraios.postman_collection.json
+```
+[Collection para importação](assets/postman-collection.json)
+
+Também criei um arquivo .csv de exemplo e já contendo alguns casos de testes, ele segue anexo em:
+```
+assets\orders-sample.csv
+```
+[CSV de exemplo / testes](assets/orders-sample.csv)
+
