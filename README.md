@@ -124,3 +124,8 @@ Para acessar a documentação da API (Swagger) acesse:
 ```
 http://localhost:3000/docs
 ```
+
+Para facilitar, criei uma collection no Postman e compartilhei com email de vocês, mais em todo caso segue o link para a collection do postman:
+```
+https://app.getpostman.com/join-team?invite_code=19c03856ed703f28e99738d08bc7d478e5be353419801cf1abd099c643d24fec
+```
