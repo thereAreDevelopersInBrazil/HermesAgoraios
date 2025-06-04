@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { ArrayMinSize, IsInt, IsNotEmpty, IsNumber, IsPositive, IsString, Min, MinLength, ValidateNested } from "class-validator";
+import { ArrayMinSize, IsInt, IsNotEmpty, IsNumber, IsOptional, IsPositive, IsString, Min, MinLength, ValidateNested } from "class-validator";
 import { IsValidCustomerId } from "src/core/validators/IsValidCustomerId";
 import { IsValidProductCode } from "src/core/validators/IsValidProductCode";
 
@@ -57,4 +57,13 @@ export class CreateOrderRequestDto {
     @ValidateNested({ each: true })
     @Type(() => ItensDto)
     itens: ItensDto[]
+
+    /**
+     * Referencia externa ao pedido caso este tenha sido espelhado de outro sistema, marketplace ou importado de um csv
+     * @example 785 
+     * @example ORDER-02134
+     * @example f78f02ac-d685-40e1-8ad0-884c8bb30fca
+    */
+    @IsOptional()
+    external_ref?: string | null
 }

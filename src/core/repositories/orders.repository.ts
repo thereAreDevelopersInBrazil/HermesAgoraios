@@ -1,4 +1,4 @@
-import { PrismaService } from "../database/prisma.service";
+import { PrismaService } from "../services/prisma.service";
 import { HttpException, HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
 import { AOrdersRepository } from "./abstracts/aorders.repository";
 import { CreateOrderDto } from "src/api/orders/dto/create-order-dto.";
@@ -15,6 +15,7 @@ export class OrdersRepository extends AOrdersRepository {
         const result = await this.prisma.orders.create({
             data: {
                 customer_id: data.customer_id,
+                external_ref: data.external_ref ? data.external_ref : null,
                 total: data.total,
                 estimated_delivery_at: data.estimated_delivery_at
             }

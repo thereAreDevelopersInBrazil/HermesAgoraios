@@ -1,4 +1,4 @@
-import { PrismaService } from "src/core/database/prisma.service";
+import { PrismaService } from "src/core/services/prisma.service";
 
 export abstract class APrismaRepository {
     protected readonly prisma: PrismaService;

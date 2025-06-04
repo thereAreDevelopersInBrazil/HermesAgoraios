@@ -1,4 +1,4 @@
-import { PrismaService } from "../database/prisma.service";
+import { PrismaService } from "../services/prisma.service";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { AProductsRepository } from "./abstracts/aproducts.repository";
 import { Product } from "src/api/products/entities/product.entity";

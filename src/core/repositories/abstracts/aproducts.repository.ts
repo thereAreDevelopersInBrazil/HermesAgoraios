@@ -1,6 +1,6 @@
 import { Product } from "src/api/products/entities/product.entity";
 import { APrismaRepository } from "./aprisma.repository";
-import { PrismaService } from "src/core/database/prisma.service";
+import { PrismaService } from "src/core/services/prisma.service";
 
 export abstract class AProductsRepository extends APrismaRepository {
     constructor(protected readonly prisma: PrismaService) {

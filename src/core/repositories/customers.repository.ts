@@ -1,4 +1,4 @@
-import { PrismaService } from "../database/prisma.service";
+import { PrismaService } from "../services/prisma.service";
 import { HttpException, HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
 import { ACustomersRepository } from "./abstracts/acustomers.repository";
 import { Customer } from "src/api/orders/entities/customer.entity";

@@ -1,6 +1,6 @@
 import { CreateOrderDto } from "src/api/orders/dto/create-order-dto.";
 import { APrismaRepository } from "./aprisma.repository";
-import { PrismaService } from "src/core/database/prisma.service";
+import { PrismaService } from "src/core/services/prisma.service";
 import { Order } from "src/api/orders/entities/order.entity";
 import { UpdateOrderDto } from "src/api/orders/dto/update-order.dto";
 import { FindAllOrdersDto } from "src/api/orders/dto/find-all-orders.dto";

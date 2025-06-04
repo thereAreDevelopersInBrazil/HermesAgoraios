@@ -40,6 +40,7 @@ model Orders {
   customer              Customers        @relation("Orders", fields: [customer_id], references: [id])
   created_at            DateTime         @default(now())
   updated_at            DateTime         @updatedAt
+  external_ref          String?          
   OrdersProducts        OrdersProducts[] @relation("Orders")
 }
 
@@ -54,3 +55,4 @@ model OrdersProducts {
   order   Orders   @relation("Orders", fields: [order_id], references: [id])
   product Products @relation("Products", fields: [product_id], references: [id])
 }
+

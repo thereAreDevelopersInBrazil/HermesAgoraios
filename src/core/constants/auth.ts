@@ -1,0 +1,1 @@
+export const AUTHORIZED_USER_TOKEN = '79cf137c-b9e2-4af1-aa65-c370b1110929';

@@ -46,6 +46,12 @@ export class Order {
     */
     public readonly updated_at: Date;
 
+    /**
+     * Referência externa que pode ser usado para identificar pedidos realizados através de upload de arquivos csv
+     * @example "ORDER-001"
+    */
+    public readonly external_ref: string | null;
+
     constructor(
         id: number,
         customer_id: number,
@@ -53,7 +59,8 @@ export class Order {
         total: number,
         estimated_delivery_at: Date,
         created_at: Date,
-        updated_at: Date
+        updated_at: Date,
+        external_ref: string | null
     ) {
         this.id = id
         this.customer_id = customer_id;
@@ -62,6 +69,7 @@ export class Order {
         this.estimated_delivery_at = estimated_delivery_at;
         this.created_at = created_at;
         this.updated_at = updated_at;
+        this.external_ref = external_ref ? external_ref : null;
     }
 
     static fromRaw(raw: Orders): Order {
@@ -72,7 +80,8 @@ export class Order {
             raw.total,
             raw.estimated_delivery_at,
             raw.created_at,
-            raw.updated_at
+            raw.updated_at,
+            raw.external_ref
         );
     }
 

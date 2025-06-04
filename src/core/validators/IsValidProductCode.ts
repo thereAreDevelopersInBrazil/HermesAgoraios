@@ -6,7 +6,7 @@ import {
     ValidationOptions,
 } from 'class-validator';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../database/prisma.service';
+import { PrismaService } from '../services/prisma.service';
 
 @ValidatorConstraint({ name: 'IsValidProductCode', async: true })
 @Injectable()

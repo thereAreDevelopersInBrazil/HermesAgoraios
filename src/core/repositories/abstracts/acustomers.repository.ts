@@ -1,5 +1,5 @@
 import { APrismaRepository } from "./aprisma.repository";
-import { PrismaService } from "src/core/database/prisma.service";
+import { PrismaService } from "src/core/services/prisma.service";
 import { Customer } from "src/api/orders/entities/customer.entity";
 import { CreateCustomerDto } from "src/api/customers/dto/create-customer.dto";
 

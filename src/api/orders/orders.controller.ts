@@ -1,11 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Query, UseInterceptors, UploadedFile, BadRequestException } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { FindAllOrdersDto } from './dto/find-all-orders.dto';
-import { CreateOrdersByCsvDto } from './dto/create-orders-by-csv.dto';
 import { CreateOrderRequestDto } from './dto/create-order-request.dto';
 import { IdParamDto } from 'src/core/dto/id-param.dto';
 import { Order } from './entities/order.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('orders')
 export class OrdersController {
@@ -28,13 +28,23 @@ export class OrdersController {
    * Cria pedidos em massa
    *
    * @remarks Cria pedidos em massa a partir do upload de um arquivo csv
+   * Espera que seja enviado um campo `orders` em formato csv (comma separated values)
    *
    * @throws {400} Bad Request - Caso exista alguma inconsistência que impossibilite completamente a leitura total do arquivo
    * @throws {500} Caso ocorra algum erro interno no serviço
   */
   @Post('/csv')
-  async createByCsv(@Body() createOrdersByCsvDto: CreateOrdersByCsvDto) {
-    return await this.ordersService.createByCsv(createOrdersByCsvDto);
+  @UseInterceptors(FileInterceptor('orders'))
+  createByCsv(@UploadedFile() orders: Express.Multer.File) {
+    const fileNameExtensions = orders.originalname.split(".");
+    const lastExtension = fileNameExtensions.pop();
+    if (lastExtension != 'csv') {
+      throw new BadRequestException(`A extensão do arquivo a ser enviado no campo orders deve ser .csv, foi recebido um arquivo com extensão .${lastExtension}`);
+    }
+    if (orders.mimetype != 'text/csv') {
+      throw new BadRequestException(`É esperado um arquivo do tipo text/csv, foi recebido um arquivo do tipo ${orders.mimetype}!`);
+    }
+    return this.ordersService.createByCsv(orders);
   }
 
   /**
