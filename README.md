@@ -16,6 +16,7 @@ Projeto de software para loja virtual com serviços avançados de criação de p
 - Criei um gerador de produtos que pode ser usado para gerar qualquer quantidade de produtos através do comando ```npm run generate:products ARG``` onde arg é o número de produtos desejado
 - Criei um sistema de feed de produtos com base no arquivo gerado
 - Código limpo, arquitetura bem definida, seguindo principalmente o principio da responsabilidade única, keep it super simple (KISS), e dont repeat yourself (DRY)
+- **Sobre não ter feito com Javascript Nativo** - Apesar de ter utilizado um framework para o desafio, acredito na importância do conhecimento profundo em Javascript nativo, me proponho a uma sessão de live coding, ou desafios nas plataformas de testes assistidos (hackerrank, coderbyte, leetcode) para resolução de problemas complexos em javascript nativo caso seja necessário para comprovar meu conhecimento nesta área.
 
 ## Tecnologias utilizadas
 - **NestJS** Framework principal, escolhi este framework por estar estudando ele atualmente, esta crescendo muito e demonstrando bons resultados e sendo adotado por grandes empresas, e está entre os mais modernos também, 
