@@ -52,7 +52,7 @@ Client
 -> Global: A qualquer momento, uma camada que encontrar uma impossibilidade de continuar o processamento pode lançar uma exception do NestJS para interromper o processamento antecipadamente.
 
 Fiz um Diagrama esboçando este resumo:
-![Imagem do diagrama da arquitetura](assets/Diagrama_Arquitetura_Amicus_Agricolae.png)
+![Imagem do diagrama da arquitetura](assets/Diagrama_Arquitetura.png)
 
 Link para visualização online:
 [Diagrama da arquitetura](https://excalidraw.com/#json=bFZ_SFM-haLpBYhE-chwK,o18803fSmVsqV7eqqo8F3g)
