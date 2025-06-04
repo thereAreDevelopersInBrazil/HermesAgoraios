@@ -10,6 +10,7 @@ Projeto de software para loja virtual com serviços avançados de criação de p
 - Baixo consumo de memória graças a injeção e inversão de dependência, maior parte dos providers e services singleton
 - Sistema de importação de pedidos por CSV a prova de falhas, resiliente, e com erros auto explicativos
 - Serviço de produtos moderno e performatico utilizando Server Side Events, com limitador de consumo das APIs externas, retorno imediato dos dados pre-existentes
+ - ***Obs.: Não consegui testar a versão final do serviço de produtos pois fiz algumas refatorações depois que meu token já havia expirado e essas ficaram sem que eu conseguisse testa-las, se tiver algum erro me perdoem, me fornecendo um novo token resolvo rapidinho, mais fiz de uma forma que em caso de erro irá funcionar o streaming de produtos porém não conseguirá preencher as informações adicionais apenas.***
 - Cacheamento dos dados retornados pelas apis de terceiros (Configurado com expiração automatica em 5 minutos)
 - Além dos endpoints previstos pelo teste, também criei endpoints para criação de consumidores e recuperação de lista de consumidores
 - Criei um gerador de produtos que pode ser usado para gerar qualquer quantidade de produtos através do comando ```npm run generate:products ARG``` onde arg é o número de produtos desejado
@@ -114,9 +115,9 @@ http://localhost:3000/docs
 7 - Também criei um gerador de produtos que gera um arquivo products.json na pasta ```prisma\products.json```, para rodar o gerador de produtos execute:
 
 ```
- npx ts-node prisma/generate_products.ts 5000
+npm run generate:products ARG
 ```
-Onde 5000 é a quantidade de produtos desejada.
+Onde ARG é a quantidade de produtos desejada ex.: 10000
 
 Para acessar a documentação da API (Swagger) acesse:
 ```
