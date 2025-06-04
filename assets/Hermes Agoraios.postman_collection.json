@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "fb62787c-cde4-4a29-af92-646110226d38",
+		"name": "Hermes Agoraios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14224274",
+		"_collection_link": "https://yandeh-9811.postman.co/workspace/Yandeh-Workspace~13928c61-4d5d-41b9-8fbd-61597cbcfc19/collection/14224274-fb62787c-cde4-4a29-af92-646110226d38?action=share&source=collection_link&creator=14224274"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "/products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products?code=555",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "\"\"",
+									"disabled": true
+								},
+								{
+									"key": "code",
+									"value": "555"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/external/availability",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "79cf137c-b9e2-4af1-aa65-c370b1110929",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gateway-smartforce.yandeh.com.br/process/candidates/availability/:idProduto",
+							"protocol": "https",
+							"host": [
+								"gateway-smartforce",
+								"yandeh",
+								"com",
+								"br"
+							],
+							"path": [
+								"process",
+								"candidates",
+								"availability",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "idProduto",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/external/lastbuy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "79cf137c-b9e2-4af1-aa65-c370b1110929",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gateway-smartforce.yandeh.com.br/process/candidates/lastbuy/:idCliente/:idProduto",
+							"protocol": "https",
+							"host": [
+								"gateway-smartforce",
+								"yandeh",
+								"com",
+								"br"
+							],
+							"path": [
+								"process",
+								"candidates",
+								"lastbuy",
+								":idCliente",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "7"
+								},
+								{
+									"key": "idProduto",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/products/details?code=COD_99&customer_id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"details"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "COD_99"
+								},
+								{
+									"key": "customer_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "/orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/orders?customer_id=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customer_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/orders/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/orders/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": 1,\r\n    \"itens\": [\r\n        {\r\n            \"code\": \"COD_9_OCssV7B\",\r\n            \"quantity\": \"asfasdf1\",\r\n            \"unit_price\": \"15.22asfasf\"\r\n        },\r\n        {\r\n            \"code\": \"COD_9_OCV7B\",\r\n            \"quantity\": 2,\r\n            \"unit_price\": 30.15\r\n        },\r\n        {\r\n            \"code\": \"COD_9_OCV7B\",\r\n            \"quantity\": 3,\r\n            \"unit_price\": 46.10\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/orders/csv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "orders",
+									"type": "file",
+									"src": "/C:/Users/TRABALHO/Documents/orders-sample.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders/csv",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/orders/:id/status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Cancelado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders/:id/status",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								":id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "/customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rodrigo\",\r\n    \"email\": \"a@b.cdeeeef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/healtcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/healthcheck",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "79cf137c-b9e2-4af1-aa65-c370b1110929",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
